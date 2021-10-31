@@ -19,7 +19,6 @@ const Post = require('./models/Post');
         Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
             res.render('home', {posts: posts})
         })
-        
     });
 
     app.get('/cad', function(req, res){
