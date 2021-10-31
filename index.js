@@ -1,23 +1,17 @@
 const express = require('express');
 const app = express();
+const handlebars = require('express-handlebars');
+const Sequelize = require('sequelize')
 
-
-app.get("/", function(req, res){
-    res.sendFile(__dirname+"/html/index.html")
-});
-
-app.get("/sobre", function(req, res){
-    res.sendFile(__dirname+"/html/sobre.html")
-});
-
-app.get("/login", function(req, res){
-    res.send('Teste Rota Login');
-});
-
-app.get("/ola/:cargo/:nome", function(req, res){
-    //res.send(req.params);
-    res.send('Ola ' + req.params.nome + ' '+req.params.cargo);
-});
+//Config
+    // Template Engine
+        app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+        app.set('view engine', 'handlebars')
+    // conexao banco de dados
+        const sequelize = new Sequelize('test', 'root', 'm6rpt2m6'
+            , { host: "localhost"
+                , dialect: 'mysql'
+            });
 
 
 app.listen(8080, function(){
