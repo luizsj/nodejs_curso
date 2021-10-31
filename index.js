@@ -16,6 +16,9 @@ const Sequelize = require('sequelize');
     app.get('/cad', function(req, res){
         res.render('formulario')
     });
+    app.post('/form_postagem', function(req, res){
+        res.send('formulário recebido')
+    })
 
 app.listen(8080, function(){
     console.log('Servidor rodando porta 8080');
