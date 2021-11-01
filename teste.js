@@ -1,5 +1,3 @@
-//github key
-// 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
 
 const Sequelize = require('sequelize')
 const sequelize = new Sequelize('test', 'root', 'm6rpt2m6'
