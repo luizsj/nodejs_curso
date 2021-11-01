@@ -35,6 +35,14 @@ const Post = require('./models/Post');
         })
     });
 
+    app.get('/deletar/:id', function(req, res){
+        Post.destroy({ where: { 'id': req.params.id}}).then(function(){
+            res.redirect('/')
+        }).catch(function(erro){
+            res.send("postagem não existe!")
+        })
+    });
+
 app.listen(8080, function(){
     console.log('Servidor rodando porta 8080');
 });
