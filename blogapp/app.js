@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const admin = require('./routes/admin');
 const path = require("path");
-//const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 //Configurações
     //Body Parser
@@ -18,6 +18,12 @@ const path = require("path");
     //Public
         app.use(express.static(path.join(__dirname, 'public')));        
     //Mongoose
+        mongoose.Promise = global.Promise;
+        mongoose.connect('mongodb://localhost/blogapp').then(() => {
+            console.log(' conectado banco de dados')
+        }).catch((err) => {
+            console.log(' erro banco de dados: '+err)
+        });
 
 //Rotas
     app.use('/admin', admin);
