@@ -1,0 +1,7 @@
+<h4>Categorias: </h4>
+<hr>
+{{#each categorias}}
+    <a href="/categorias/{{slug}}"><h3 class=mt-2>{{nome}}</h3></a>
+{{else}}
+    <h3>Cadastro de Categorias está vazio!</h3>
+{{/each}}
