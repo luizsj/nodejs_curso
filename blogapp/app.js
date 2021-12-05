@@ -4,7 +4,6 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser');
 const app = express();
-const admin = require('./routes/admin');
 const path = require("path");
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -14,6 +13,9 @@ const Postagem = mongoose.model("postagens")
 require("./models/Categoria");
 const Categoria = mongoose.model("categorias")
 
+//rotass externas
+const admin = require('./routes/admin');
+const usuarios = require('./routes/usuario');
 
 //Configurações
     //Sessão
@@ -102,6 +104,7 @@ const Categoria = mongoose.model("categorias")
 
 
     app.use('/admin', admin);
+    app.use('/usuarios', usuarios);
 //Outros
 const Port = 8080;
 app.listen(Port, () => {
