@@ -10,8 +10,11 @@
             Home 
         </a>
         <a class="nav-link" href="/categorias">Categorias</a>
+        {{#if user}}
+        {{else}}
         <a class="nav-link" href="/usuarios/login">Login</a>
         <a class="nav-link" href="/usuarios/registro">Registro</a>
+        {{/if}}
       </div>
     </div>
   </div>
